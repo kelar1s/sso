@@ -38,6 +38,7 @@ var (
 	ErrInvalidCredentials = errors.New("invalid credentials")
 	ErrInvalidAppID       = errors.New("invalid app id")
 	ErrUserExists         = errors.New("user already exists")
+	ErrUserNotFound       = errors.New("user not found")
 )
 
 func New(
@@ -51,6 +52,7 @@ func New(
 	return &Auth{
 		usrSaver:    userSaver,
 		usrProvider: userProvider,
+		log:         log,
 		appProvider: appProvider,
 		tokenTTL:    tokenTTL,
 	}
